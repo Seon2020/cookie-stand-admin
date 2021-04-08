@@ -26,10 +26,9 @@ export default function Home() {
         <Form title="Create Cookie Stand"/>
 
         <div className="text-gray-500 my-10 text-center">
-        <p>Report Table Coming Soon...</p>
-        <p className="my-8">{cookieStandNew}</p>
-
-      </div>
+          <p>Report Table Coming Soon...</p>
+          <p className="my-8">{cookieStandNew}</p>
+        </div>
 
       </main>
 
@@ -64,16 +63,16 @@ export default function Home() {
         </div>
         <div className="flex items-end gap-x-3 pt-8">
           <div className="flex-1">
-            <label className='text-sm font-bold' for='min'>Minimum Customers per Hour</label>
-            <input name='min' className="text-black w-full"></input>
+            <label className='text-sm font-bold' for='minCustomers'>Minimum Customers per Hour</label>
+            <input name='minCustomers' className="text-black w-full"></input>
           </div>
           <div className="flex-1">
-            <label className='text-sm font-bold' for='max'>Maximum Customers per Hour</label>
-            <input name='max' className="text-black w-full"></input>
+            <label className='text-sm font-bold' for='maxCustomers'>Maximum Customers per Hour</label>
+            <input name='maxCustomers' className="text-black w-full"></input>
           </div>
           <div className="flex-1">
-            <label className='text-sm font-bold' for='avg'>Average Cookies per Sale</label>
-            <input name='avg' className="text-black w-full"></input>
+            <label className='text-sm font-bold' for='avgCustomers'>Average Cookies per Sale</label>
+            <input name='avgCustomers' className="text-black w-full"></input>
           </div>
           <div className='flex-1 self-stretch'>
             <button type="submit" className="w-full h-full text-black bg-green-500">Create</button>
