@@ -13,7 +13,7 @@ export default function Home() {
   }  
 
   return (
-    <div className='flex flex-col min-h-screen py-5'>
+    <div className='bg-green-50 py-5 min-h-screen'>
       <Head>
         <title>Cookie Stand App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -21,7 +21,7 @@ export default function Home() {
 
       <Header title='Cookie Stand Admin'/>
 
-      <main className='bg-green-50 h-full'>
+      <main className='h-full'>
   
         <Form title="Create Cookie Stand"/>
 
