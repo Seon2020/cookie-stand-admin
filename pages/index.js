@@ -9,8 +9,8 @@ export default function Home() {
   const [stands, setStands] = useState([])
 
   function onCreate(e){
-    e.preventDefault();
-    const totalHours = hours.map(hour => hour);
+    e.preventDefault()
+    const totalHours = hours.map(hour => hour)
     const newStands = {
       location: e.target.location.value,
       minCustomers: e.target.minCustomers.value,
@@ -99,44 +99,46 @@ export default function Home() {
 
   function ReportTable(props) {
 
-    if (stands.length === 0) {
+    if (stands.length > 0) {
+
+      const col_totals = hours.map((hour, idx) => (
+        props.arrayCookieStands.reduce((total, stand) => total + stand.hourly_sales[idx], 0))
+      )
+      
+      return(
+        <div className="mb-10 text-center">
+          <table className="w-9/12 m-auto">
+            <thead>
+              <tr className="bg-green-500">
+                <th className="px-4 center">Location</th>
+                {hours.map(hour => (<th className="text-sm">{hour}</th>))}
+                <th className="px-4 center">Total</th>
+              </tr>
+            </thead>
+            <tbody className="bg-green-300">
+              {props.arrayCookieStands.map(stand => (
+                <tr className="odd:bg-green-400">
+                  <td className="border border-gray-400">{stand.location}</td>
+                  {stand.hourly_sales.map(total => (<td className="border border-gray-400">{total}</td>))}
+                  <td className="border border-gray-400">{stand.hourly_sales.reduce((x, y) => x + y, 0)}</td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot className="bg-green-500">
+              <tr className="font-bold">
+                <th>Totals</th>
+                {col_totals.map(total => (<th>{total}</th>))}
+                {col_totals.reduce((x, y) => x + y, 0)}
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+    )
+  }
+    else {
       return(
         <h2>No Cookie Stands Available</h2>
       )
     }
-
-    const row_totals = hours.map((hour, idx) => (
-      props.arrayCookieStands.reduce((total, stand) => total + stand.hourly_sales[idx], 0))
-    )
-
-    return(
-      <div className="mb-10 text-center">
-        <table className="w-9/12 m-auto">
-          <thead>
-            <tr className="bg-green-500">
-              <th className="px-4 center">Location</th>
-              {hours.map(hour => (<th className="text-sm">{hour}</th>))}
-              <th className="px-4 center">Total</th>
-            </tr>
-          </thead>
-          <tbody className="bg-green-300">
-            {props.arrayCookieStands.map(stand => (
-              <tr className="odd:bg-green-400">
-                <td className="border border-gray-400">{stand.location}</td>
-                {stand.hourly_sales.map(total => (<td className="border border-gray-400">{total}</td>))}
-                <td className="border border-gray-400">{stand.hourly_sales.reduce((x, y) => x + y, 0)}</td>
-              </tr>
-            ))}
-          </tbody>
-          <tfoot className="bg-green-500">
-            <tr className="font-bold">
-              <th>Totals</th>
-              {row_totals.map(total => (<th>{total}</th>))}
-              {row_totals.reduce((x, y) => x + y, 0)}
-            </tr>
-          </tfoot>
-        </table>
-      </div>
-    )
   }
 }
