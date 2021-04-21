@@ -1,6 +1,7 @@
 # Cookie Stand Admin
 ### Lab 37
 #### Most Recent PR: https://github.com/Seon2020/cookie-stand-admin/pull/5
+#### Deployed URL: https://cookie-stand-admin-eight.vercel.app/ 
 
 # Next.js + Tailwind CSS Example
 
